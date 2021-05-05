@@ -1,0 +1,32 @@
+Load 3DS model
+
+Each light has:
+	Enabled
+	Pos(x,y,z)
+	RGB ambient
+	diffuse and specular intensity
+	point/directional light
+	lighting direction
+	spotlight
+	attenuation
+
+material parameters:
+	ambient
+	diffuse
+	specular in each RGB channel
+	shininess
+
+shaders:
+	normal mapping
+	per-pixel lighting
+	phong shading
+	Additionally include your own two custom shaders.
+
+Users should be able to pan, rotate (just like the trackball.h) and zoom in/out the camera. 
+
+
+Extra Credit (upto 20%)
+
+Users should be able to load and apply different textures on 3D model.
+
+Users should be able to choose a basic image for the entire 3D model, or uv map and custom texture designed for the sepecific model.
