@@ -6,99 +6,405 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1230</width>
-    <height>722</height>
+    <width>1900</width>
+    <height>1000</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1900</width>
+    <height>1000</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>FinalModelViewer</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="3">
+     <widget class="QViewport" name="viewport" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="2">
      <widget class="QWidget" name="widget" native="true">
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="5" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout">
+       <item row="8" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QRadioButton" name="radioButton_2">
            <property name="text">
-            <string>Change Icosahedron Subdivision Level</string>
+            <string>Point Light</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="subSpinBox">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="maximum">
-            <number>4</number>
+          <widget class="QRadioButton" name="radioButton">
+           <property name="text">
+            <string>Directional Light</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
-       <item row="10" column="0">
-        <widget class="QRadioButton" name="radio_flatButton">
+       <item row="29" column="1">
+        <widget class="QPushButton" name="pushButton_6">
          <property name="text">
-          <string>Flat Shading</string>
+          <string>Custom #2</string>
          </property>
         </widget>
        </item>
-       <item row="15" column="0">
-        <widget class="QPushButton" name="light0Button">
+       <item row="30" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="2">
+        <widget class="QCheckBox" name="checkBox">
          <property name="text">
-          <string>Light (0)</string>
+          <string>Spotlight</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+       </item>
+       <item row="7" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+       </item>
+       <item row="35" column="0">
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Load 3DS Model</string>
+         </property>
+        </widget>
+       </item>
+       <item row="32" column="1">
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>Load UV Map</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Ambient RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <item>
+          <widget class="QLabel" name="label_20">
+           <property name="text">
+            <string>PosZ</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+         </item>
+        </layout>
+       </item>
+       <item row="28" column="1">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Per-Pixel Lighting</string>
          </property>
         </widget>
        </item>
        <item row="9" column="0">
-        <widget class="QRadioButton" name="radio_smoothButton">
+        <widget class="QLabel" name="label_16">
          <property name="text">
-          <string>Smooth Shading</string>
+          <string>LIGHT #2</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>Ambient RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>PosZ</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+         </item>
+        </layout>
+       </item>
+       <item row="16" column="1">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Diffuse RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>PosY</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
+         </item>
+        </layout>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Specular Intensity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="31" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>TEXTURE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Mesh</string>
+          <string>LIGHT #1</string>
          </property>
         </widget>
        </item>
-       <item row="22" column="0">
+       <item row="21" column="0">
+        <widget class="QSpinBox" name="spinBox"/>
+       </item>
+       <item row="17" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QDial" name="dial_6">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_5">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_4">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="light1Enabled">
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="27" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>SHADERS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="35" column="2">
         <widget class="QPushButton" name="exitButton">
          <property name="text">
           <string>Exit</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_5">
+       <item row="12" column="0">
+        <widget class="QCheckBox" name="checkBox_3">
          <property name="text">
-          <string>Shading</string>
+          <string>Enabled</string>
          </property>
         </widget>
        </item>
-       <item row="18" column="0">
-        <widget class="QLabel" name="label_3">
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_17">
          <property name="text">
-          <string>Texture</string>
+          <string>LIGHT #3</string>
          </property>
         </widget>
        </item>
-       <item row="16" column="0">
-        <widget class="QPushButton" name="light1Button">
+       <item row="28" column="0">
+        <widget class="QPushButton" name="pushButton_2">
          <property name="text">
-          <string>Light (1)</string>
+          <string>Normal Mapping</string>
          </property>
         </widget>
        </item>
-       <item row="21" column="0">
+       <item row="7" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QDial" name="dial_11">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_12">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_10">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="17" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QDial" name="dial">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>50</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_2">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_3">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="20" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Shininess</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>Attenuation</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spinBox_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="28" column="2">
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>Phong Shading</string>
+         </property>
+        </widget>
+       </item>
+       <item row="32" column="0">
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Load Texture</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Diffuse Intensity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="2">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Specular RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>PosY</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="34" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -111,70 +417,90 @@
          </property>
         </spacer>
        </item>
-       <item row="14" column="0">
-        <widget class="QLabel" name="label_2">
+       <item row="15" column="0">
+        <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Lighting:</string>
+          <string>MATERIAL PARAMETERS</string>
          </property>
         </widget>
        </item>
-       <item row="17" column="0">
-        <widget class="QPushButton" name="toggleLightButton">
-         <property name="text">
-          <string>Toggle Lighting</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QRadioButton" name="teapotButton">
-         <property name="text">
-          <string>Render Teapot</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QRadioButton" name="torusButton">
-         <property name="text">
-          <string>Render Torus</string>
-         </property>
-        </widget>
+       <item row="17" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QDial" name="dial_8">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_9">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_7">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item row="4" column="0">
-        <widget class="QRadioButton" name="icoButton">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>PosX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+         </item>
+        </layout>
+       </item>
+       <item row="29" column="0">
+        <widget class="QPushButton" name="pushButton_5">
          <property name="text">
-          <string>Render Icosahedron</string>
+          <string>Custom #1</string>
          </property>
         </widget>
        </item>
-       <item row="19" column="0">
-        <widget class="QRadioButton" name="clampButton">
+       <item row="10" column="0">
+        <widget class="QCheckBox" name="checkBox_2">
          <property name="text">
-          <string>Clamp</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0">
-        <widget class="QRadioButton" name="repeatButton">
-         <property name="text">
-          <string>Repeat</string>
+          <string>Enabled</string>
          </property>
         </widget>
        </item>
        <item row="13" column="0">
-        <widget class="QCheckBox" name="envMapButton">
-         <property name="text">
-          <string>Toggle Environment Mapping</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>PosX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+         </item>
+        </layout>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QViewport" name="viewport" native="true">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 0, 0);</string>
-      </property>
      </widget>
     </item>
    </layout>
@@ -184,7 +510,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1230</width>
+     <width>1900</width>
      <height>21</height>
     </rect>
    </property>
@@ -212,22 +538,6 @@
   <include location="FinalModelViewer.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>subSpinBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>FinalModelViewerClass</receiver>
-   <slot>changeLevel(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>457</x>
-     <y>86</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>615</x>
-     <y>360</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>exitButton</sender>
    <signal>clicked()</signal>
