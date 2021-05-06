@@ -41,4 +41,4 @@ typedef struct {
 } obj_type, *obj_type_ptr;
 
 
-extern char Load3DS(obj_type_ptr ogg, char *filename);
+extern char Load3DS(obj_type_ptr ogg, const char *filename);

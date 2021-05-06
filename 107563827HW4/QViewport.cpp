@@ -3,6 +3,7 @@
 #include "Icosahedron.h"
 #include <QOpenGLContext>
 
+
 //extern "C" {
 //#include "tga.h"
 //}
@@ -225,6 +226,20 @@ QViewport::~QViewport() {}
 void QViewport::initializeGL() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+	//light test
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+
+	GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+
+	glShadeModel(GL_SMOOTH);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+	glEnable(GL_LIGHT0);
+	glEnable(GL_DEPTH_TEST);
+	//---
 }
 
 void QViewport::paintGL() {
@@ -247,6 +262,8 @@ void QViewport::paintGL() {
 		glColor3f(0.0f, 0.0f, 1.0f);
 		glVertex3f(0.0f, 0.0f, 1.0f);
 		glVertex3f(0.0f, 0.0f, s);
+
+
 	glEnd();
 	glPopMatrix();
 }

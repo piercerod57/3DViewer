@@ -1,3 +1,4 @@
+#include "LoadModel.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -15,7 +16,7 @@
   *
   *********************************************************/
 
-char Load3DS(obj_type_ptr p_object, char *p_filename)
+char Load3DS(obj_type_ptr p_object, const char *p_filename)
 {
 	int i; //Index variable
 

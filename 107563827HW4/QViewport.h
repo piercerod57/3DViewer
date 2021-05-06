@@ -2,7 +2,7 @@
 
 #include <QOpenGLWidget>
 #include "Icosahedron.h"
-
+#include "LoadModel.h"
 
 /**
  * Enum that is used to determine which mesh is displayed.
@@ -24,6 +24,9 @@ public:
 	void initializeGL();
 	void paintGL();
 	void resizeGL(int width, int height);
+
+	
+	obj_type mesh;
 
 	
 

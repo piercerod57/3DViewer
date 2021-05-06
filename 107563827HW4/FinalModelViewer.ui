@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1900</width>
-    <height>1000</height>
+    <height>1001</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -83,7 +83,7 @@
         <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
        </item>
        <item row="35" column="0">
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="loadButton">
          <property name="text">
           <string>Load 3DS Model</string>
          </property>
@@ -545,12 +545,28 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
-     <y>672</y>
+     <x>937</x>
+     <y>961</y>
     </hint>
     <hint type="destinationlabel">
      <x>614</x>
      <y>360</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loadButton</sender>
+   <signal>clicked()</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>loadFromFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>950</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
     </hint>
    </hints>
   </connection>
@@ -559,5 +575,6 @@
   <slot>changeLevel(int)</slot>
   <slot>changeColor()</slot>
   <slot>renderIco()</slot>
+  <slot>loadFromFile()</slot>
  </slots>
 </ui>

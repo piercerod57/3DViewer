@@ -92,6 +92,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Icosahedron.cpp" />
+    <ClCompile Include="LoadModel.cpp" />
     <ClCompile Include="QViewport.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <QtRcc Include="FinalModelViewer.qrc" />
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="icosahedron.h" />
+    <ClInclude Include="LoadModel.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="Vector3f.h" />
     <QtMoc Include="QViewport.h" />
