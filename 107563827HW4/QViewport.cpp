@@ -245,6 +245,7 @@ void QViewport::initializeGL() {
 void QViewport::paintGL() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+	int l_index;
 	float s = 2.0f;
 
 	glPushMatrix();
@@ -263,7 +264,60 @@ void QViewport::paintGL() {
 		glVertex3f(0.0f, 0.0f, 1.0f);
 		glVertex3f(0.0f, 0.0f, s);
 
+		
+	//glEnd();
+	glPopMatrix();
 
+	glPushMatrix();
+		glMatrixMode(GL_MODELVIEW); // Modeling transformation
+		glLoadIdentity(); // Initialize the model matrix as identity
+
+		//glTranslatef(0.0, 0.0, -300); // We move the object forward (the model matrix is multiplied by the translation matrix)
+
+		//rotation_x = rotation_x + rotation_x_increment;
+		//rotation_y = rotation_y + rotation_y_increment;
+		//rotation_z = rotation_z + rotation_z_increment;
+
+		//if (rotation_x > 359) rotation_x = 0;
+		//if (rotation_y > 359) rotation_y = 0;
+		//if (rotation_z > 359) rotation_z = 0;
+
+		//glRotatef(rotation_x, 1.0, 0.0, 0.0); // Rotations of the object (the model matrix is multiplied by the rotation matrices)
+		//glRotatef(rotation_y, 0.0, 1.0, 0.0);
+		//glRotatef(rotation_z, 0.0, 0.0, 1.0);
+
+		//glBindTexture(GL_TEXTURE_2D, this->mesh.id_texture); // We set the active texture 
+
+		glBegin(GL_TRIANGLES); // glBegin and glEnd delimit the vertices that define a primitive (in our case triangles)
+		for (l_index = 0; l_index < this->mesh.polygons_qty; l_index++)
+		{
+			//----------------- FIRST VERTEX -----------------
+			// Texture coordinates of the first vertex
+			glTexCoord2f(this->mesh.mapcoord[this->mesh.polygon[l_index].a].u,
+			this->mesh.mapcoord[this->mesh.polygon[l_index].a].v);
+			// Coordinates of the first vertex
+			glVertex3f(this->mesh.vertex[this->mesh.polygon[l_index].a].x,
+			this->mesh.vertex[this->mesh.polygon[l_index].a].y,
+			this->mesh.vertex[this->mesh.polygon[l_index].a].z); //Vertex definition
+
+			//----------------- SECOND VERTEX -----------------
+			// Texture coordinates of the second vertex
+			glTexCoord2f(this->mesh.mapcoord[this->mesh.polygon[l_index].b].u,
+			this->mesh.mapcoord[this->mesh.polygon[l_index].b].v);
+			// Coordinates of the second vertex
+			glVertex3f(this->mesh.vertex[this->mesh.polygon[l_index].b].x,
+			this->mesh.vertex[this->mesh.polygon[l_index].b].y,
+			this->mesh.vertex[this->mesh.polygon[l_index].b].z);
+
+			//----------------- THIRD VERTEX -----------------
+			// Texture coordinates of the third vertex
+			glTexCoord2f(this->mesh.mapcoord[this->mesh.polygon[l_index].c].u,
+				this->mesh.mapcoord[this->mesh.polygon[l_index].c].v);
+			// Coordinates of the Third vertex
+			glVertex3f(this->mesh.vertex[this->mesh.polygon[l_index].c].x,
+			this->mesh.vertex[this->mesh.polygon[l_index].c].y,
+			this->mesh.vertex[this->mesh.polygon[l_index].c].z);
+		}
 	glEnd();
 	glPopMatrix();
 }
