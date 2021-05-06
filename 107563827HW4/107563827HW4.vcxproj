@@ -11,11 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3020AF15-A9B0-4BC6-BEE9-168D46D0AA8E}</ProjectGuid>
+    <ProjectGuid>{B06F6B1F-F5B9-4ECA-910A-0FAB9E765524}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.17763.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.17763.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <ProjectName>ModelViewer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -90,18 +91,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Icosahedron.cpp" />
     <ClCompile Include="QViewport.cpp" />
     <ClCompile Include="Vector3f.cpp" />
-    <QtRcc Include="ModelViewer.qrc" />
-    <QtUic Include="ModelViewer.ui" />
-    <QtMoc Include="ModelViewer.h" />
-    <ClCompile Include="ModelViewer.cpp" />
+    <QtRcc Include="FinalModelViewer.qrc" />
+    <QtUic Include="FinalModelViewer.ui" />
+    <QtMoc Include="FinalModelViewer.h" />
+    <ClCompile Include="FinalModelViewer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="icosahedron.h" />
     <ClInclude Include="OpenGL.h" />
-    <QtMoc Include="QViewport.h" />
     <ClInclude Include="Vector3f.h" />
+    <QtMoc Include="QViewport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
