@@ -28,7 +28,9 @@ public:
 	
 	obj_type mesh;
 
-	
+	double rotation_x = 0, rotation_x_increment = 0.1;
+	double rotation_y = 0, rotation_y_increment = 0.05;
+	double rotation_z = 0, rotation_z_increment = 0.03;
 
 	/* Direct access to these, improve as you would like */
 	

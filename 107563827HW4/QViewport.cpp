@@ -226,6 +226,23 @@ QViewport::~QViewport() {}
 void QViewport::initializeGL() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+	glShadeModel(GL_SMOOTH); // Type of shading for the polygons
+
+	// Viewport transformation
+	//glViewport(0, 0, screen_width, screen_height);
+
+	// Projection transformation
+	glMatrixMode(GL_PROJECTION); // Specifies which matrix stack is the target for matrix operations 
+	glLoadIdentity(); // We initialize the projection matrix as identity
+	//gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 10.0f, 10000.0f); // We define the "viewing volume"
+
+	glEnable(GL_DEPTH_TEST); // We enable the depth test (also called z buffer)
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // Polygon rasterization mode (polygon filled)
+
+	glEnable(GL_TEXTURE_2D); // This Enable the Texture mapping
+
+	Load3DS(&this->mesh, "spaceship.3ds");
+
 	//light test
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 50.0 };
@@ -247,7 +264,7 @@ void QViewport::paintGL() {
 	
 	int l_index;
 	float s = 2.0f;
-
+	
 	glPushMatrix();
 		gluLookAt(0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 		
@@ -265,28 +282,28 @@ void QViewport::paintGL() {
 		glVertex3f(0.0f, 0.0f, s);
 
 		
-	//glEnd();
+		glEnd();
 	glPopMatrix();
 
 	glPushMatrix();
 		glMatrixMode(GL_MODELVIEW); // Modeling transformation
 		glLoadIdentity(); // Initialize the model matrix as identity
 
-		//glTranslatef(0.0, 0.0, -300); // We move the object forward (the model matrix is multiplied by the translation matrix)
+		glTranslatef(0.0, 0.0, -300); // We move the object forward (the model matrix is multiplied by the translation matrix)
 
-		//rotation_x = rotation_x + rotation_x_increment;
-		//rotation_y = rotation_y + rotation_y_increment;
-		//rotation_z = rotation_z + rotation_z_increment;
+		this->rotation_x = this->rotation_x + this->rotation_x_increment;
+		this->rotation_y = this->rotation_y + this->rotation_y_increment;
+		this->rotation_z = this->rotation_z + this->rotation_z_increment;
 
-		//if (rotation_x > 359) rotation_x = 0;
-		//if (rotation_y > 359) rotation_y = 0;
-		//if (rotation_z > 359) rotation_z = 0;
+		if (this->rotation_x > 359) this->rotation_x = 0;
+		if (this->rotation_y > 359) this->rotation_y = 0;
+		if (this->rotation_z > 359) this->rotation_z = 0;
 
-		//glRotatef(rotation_x, 1.0, 0.0, 0.0); // Rotations of the object (the model matrix is multiplied by the rotation matrices)
-		//glRotatef(rotation_y, 0.0, 1.0, 0.0);
-		//glRotatef(rotation_z, 0.0, 0.0, 1.0);
+		glRotatef(this->rotation_x, 1.0, 0.0, 0.0); // Rotations of the object (the model matrix is multiplied by the rotation matrices)
+		glRotatef(this->rotation_y, 0.0, 1.0, 0.0);
+		glRotatef(this->rotation_z, 0.0, 0.0, 1.0);
 
-		//glBindTexture(GL_TEXTURE_2D, this->mesh.id_texture); // We set the active texture 
+		glBindTexture(GL_TEXTURE_2D, this->mesh.id_texture); // We set the active texture 
 
 		glBegin(GL_TRIANGLES); // glBegin and glEnd delimit the vertices that define a primitive (in our case triangles)
 		for (l_index = 0; l_index < this->mesh.polygons_qty; l_index++)
@@ -318,7 +335,7 @@ void QViewport::paintGL() {
 			this->mesh.vertex[this->mesh.polygon[l_index].c].y,
 			this->mesh.vertex[this->mesh.polygon[l_index].c].z);
 		}
-	glEnd();
+		glEnd();
 	glPopMatrix();
 }
 

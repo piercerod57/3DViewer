@@ -9,8 +9,8 @@
  * multi objects, materials, lights and so on, you must insert other chunk parsers.
  *
  *********************************************************/
-#define MAX_VERTICES 8000 // Max number of vertices (for each object)
-#define MAX_POLYGONS 8000 // Max number of polygons (for each object)
+#define MAX_VERTICES 80000 // Max number of vertices (for each object)
+#define MAX_POLYGONS 80000 // Max number of polygons (for each object)
 
 // Our vertex type
 typedef struct {
