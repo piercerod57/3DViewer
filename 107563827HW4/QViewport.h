@@ -27,6 +27,7 @@ public:
 
 	
 	obj_type mesh;
+	obj_type_ptr ogg = &mesh;
 
 	double rotation_x = 0, rotation_x_increment = 0.1;
 	double rotation_y = 0, rotation_y_increment = 0.05;

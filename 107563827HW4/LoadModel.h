@@ -9,8 +9,8 @@
  * multi objects, materials, lights and so on, you must insert other chunk parsers.
  *
  *********************************************************/
-#define MAX_VERTICES 80000 // Max number of vertices (for each object)
-#define MAX_POLYGONS 80000 // Max number of polygons (for each object)
+#define MAX_VERTICES 8000 // Max number of vertices (for each object)
+#define MAX_POLYGONS 8000 // Max number of polygons (for each object)
 
 // Our vertex type
 typedef struct {
@@ -19,7 +19,7 @@ typedef struct {
 
 // The polygon (triangle), 3 numbers that aim 3 vertices
 typedef struct {
-	int a, b, c;
+	unsigned short a, b, c;
 }polygon_type;
 
 // The mapcoord type, 2 texture coordinates for each vertex
@@ -41,4 +41,4 @@ typedef struct {
 } obj_type, *obj_type_ptr;
 
 
-extern char Load3DS(obj_type_ptr ogg, const char *filename);
+extern char Load3DS(obj_type_ptr ogg, char *filename);

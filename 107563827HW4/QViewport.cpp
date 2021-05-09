@@ -228,20 +228,23 @@ void QViewport::initializeGL() {
 
 	glShadeModel(GL_SMOOTH); // Type of shading for the polygons
 
+	float width = this->width();
+	float height = this->height();
+
 	// Viewport transformation
-	//glViewport(0, 0, screen_width, screen_height);
+	glViewport(0, 0, width, height);
 
 	// Projection transformation
 	glMatrixMode(GL_PROJECTION); // Specifies which matrix stack is the target for matrix operations 
 	glLoadIdentity(); // We initialize the projection matrix as identity
-	//gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 10.0f, 10000.0f); // We define the "viewing volume"
+	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 10.0f, 10000.0f); // We define the "viewing volume"
 
 	glEnable(GL_DEPTH_TEST); // We enable the depth test (also called z buffer)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // Polygon rasterization mode (polygon filled)
 
 	glEnable(GL_TEXTURE_2D); // This Enable the Texture mapping
 
-	Load3DS(&this->mesh, "spaceship.3ds");
+	//Load3DS(&this->mesh, "P:\MCBACK\CSCI\graphics\107563827Final\107563827Final\107563827HW4\spaceship.3ds");
 
 	//light test
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -257,6 +260,8 @@ void QViewport::initializeGL() {
 	glEnable(GL_LIGHT0);
 	glEnable(GL_DEPTH_TEST);
 	//---
+
+	this->mesh.id_texture = 0;
 }
 
 void QViewport::paintGL() {
@@ -289,19 +294,7 @@ void QViewport::paintGL() {
 		glMatrixMode(GL_MODELVIEW); // Modeling transformation
 		glLoadIdentity(); // Initialize the model matrix as identity
 
-		glTranslatef(0.0, 0.0, -300); // We move the object forward (the model matrix is multiplied by the translation matrix)
-
-		this->rotation_x = this->rotation_x + this->rotation_x_increment;
-		this->rotation_y = this->rotation_y + this->rotation_y_increment;
-		this->rotation_z = this->rotation_z + this->rotation_z_increment;
-
-		if (this->rotation_x > 359) this->rotation_x = 0;
-		if (this->rotation_y > 359) this->rotation_y = 0;
-		if (this->rotation_z > 359) this->rotation_z = 0;
-
-		glRotatef(this->rotation_x, 1.0, 0.0, 0.0); // Rotations of the object (the model matrix is multiplied by the rotation matrices)
-		glRotatef(this->rotation_y, 0.0, 1.0, 0.0);
-		glRotatef(this->rotation_z, 0.0, 0.0, 1.0);
+		//glTranslatef(0.0, 0.0, 0.0); // We move the object forward (the model matrix is multiplied by the translation matrix)
 
 		glBindTexture(GL_TEXTURE_2D, this->mesh.id_texture); // We set the active texture 
 
@@ -310,12 +303,13 @@ void QViewport::paintGL() {
 		{
 			//----------------- FIRST VERTEX -----------------
 			// Texture coordinates of the first vertex
-			glTexCoord2f(this->mesh.mapcoord[this->mesh.polygon[l_index].a].u,
-			this->mesh.mapcoord[this->mesh.polygon[l_index].a].v);
+			
+			glTexCoord2f(	this->mesh.mapcoord[	this->mesh.polygon[l_index].a	].u,
+							this->mesh.mapcoord[	this->mesh.polygon[l_index].a	].v);
 			// Coordinates of the first vertex
-			glVertex3f(this->mesh.vertex[this->mesh.polygon[l_index].a].x,
-			this->mesh.vertex[this->mesh.polygon[l_index].a].y,
-			this->mesh.vertex[this->mesh.polygon[l_index].a].z); //Vertex definition
+			glVertex3f(		this->mesh.vertex[	this->mesh.polygon[l_index].a	].x,
+							this->mesh.vertex[	this->mesh.polygon[l_index].a	].y,
+							this->mesh.vertex[	this->mesh.polygon[l_index].a	].z); //Vertex definition
 
 			//----------------- SECOND VERTEX -----------------
 			// Texture coordinates of the second vertex

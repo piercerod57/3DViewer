@@ -1,9 +1,8 @@
-#include "LoadModel.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <io.h>
-
+#include "LoadModel.h"
 
  /**********************************************************
   *
@@ -16,7 +15,7 @@
   *
   *********************************************************/
 
-char Load3DS(obj_type_ptr p_object, const char *p_filename)
+char Load3DS(obj_type_ptr p_object, char *p_filename)
 {
 	int i; //Index variable
 
@@ -117,13 +116,13 @@ char Load3DS(obj_type_ptr p_object, const char *p_filename)
 			printf("Number of polygons: %d\n", l_qty);
 			for (i = 0; i < l_qty; i++)
 			{
-				fread(&p_object->polygon[i].a, sizeof(unsigned short), 1, l_file);
+				fread(&p_object->polygon[i].a, sizeof (unsigned short), 1, l_file);
 				printf("Polygon point a: %d\n", p_object->polygon[i].a);
-				fread(&p_object->polygon[i].b, sizeof(unsigned short), 1, l_file);
+				fread(&p_object->polygon[i].b, sizeof (unsigned short), 1, l_file);
 				printf("Polygon point b: %d\n", p_object->polygon[i].b);
-				fread(&p_object->polygon[i].c, sizeof(unsigned short), 1, l_file);
+				fread(&p_object->polygon[i].c, sizeof (unsigned short), 1, l_file);
 				printf("Polygon point c: %d\n", p_object->polygon[i].c);
-				fread(&l_face_flags, sizeof(unsigned short), 1, l_file);
+				fread(&l_face_flags, sizeof (unsigned short), 1, l_file);
 				printf("Face flags: %x\n", l_face_flags);
 			}
 			break;
