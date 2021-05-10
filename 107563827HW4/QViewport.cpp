@@ -2,11 +2,7 @@
 #include "OpenGL.h"
 #include "Icosahedron.h"
 #include <QOpenGLContext>
-
-
-//extern "C" {
-//#include "tga.h"
-//}
+#include <QMouseEvent> 
 
 /**
 
@@ -217,19 +213,26 @@ void QViewport::g_draw_lights() {
 }
 */
 
-QViewport::QViewport(QWidget* parent) : QOpenGLWidget(parent) {
+QViewport::QViewport(QWidget* parent) : QOpenGLWidget(parent) 
+{
 	
 }
 
 QViewport::~QViewport() {}
 
-void QViewport::initializeGL() {
+void QViewport::initializeGL() 
+{
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	glShadeModel(GL_SMOOTH); // Type of shading for the polygons
 
 	float width = this->width();
 	float height = this->height();
+
+	this->xRot = 0;
+	this->yRot = 0;
+	this->zRot = 0;
+	this->zoom = -75.0;
 
 	// Viewport transformation
 	glViewport(0, 0, width, height);
@@ -264,7 +267,8 @@ void QViewport::initializeGL() {
 	this->mesh.id_texture = 0;
 }
 
-void QViewport::paintGL() {
+void QViewport::paintGL() 
+{
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	int l_index;
@@ -290,11 +294,17 @@ void QViewport::paintGL() {
 		glEnd();
 	glPopMatrix();
 
+
 	glPushMatrix();
 		glMatrixMode(GL_MODELVIEW); // Modeling transformation
 		glLoadIdentity(); // Initialize the model matrix as identity
 
-		//glTranslatef(0.0, 0.0, 0.0); // We move the object forward (the model matrix is multiplied by the translation matrix)
+		glTranslatef(0.0, 0.0, -75.0); // apply translation to transformation
+		
+		glRotatef(this->xRot / 16.0, 1.0, 0.0, 0.0); // apply rotation on x
+		glRotatef(this->yRot / 16.0, 0.0, 1.0, 0.0); // apply rotation on y
+		glRotatef(this->zRot / 16.0, 0.0, 0.0, 1.0); // apply rotation on z
+		glScaled(this->zoom, this->zoom, this->zoom);
 
 		glBindTexture(GL_TEXTURE_2D, this->mesh.id_texture); // We set the active texture 
 
@@ -334,7 +344,8 @@ void QViewport::paintGL() {
 }
 
 
-void QViewport::resizeGL(int width, int height) {
+void QViewport::resizeGL(int width, int height) 
+{
 	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -343,3 +354,78 @@ void QViewport::resizeGL(int width, int height) {
 	
 }
 
+void qNormalizeAngle(int* angle)
+{
+	while (*angle < 0)
+		*angle += 360 * 16;
+	while (*angle > 360 * 16)
+		*angle -= 360 * 16;
+}
+
+void QViewport::setXRotation(int angle)
+{
+	qNormalizeAngle(&angle);
+	if (angle != xRot) {
+		xRot = angle;
+		emit xRotationChanged(angle);
+		update();
+	}
+}
+
+void QViewport::setYRotation(int angle)
+{
+	qNormalizeAngle(&angle);
+	if (angle != yRot) {
+		yRot = angle;
+		emit yRotationChanged(angle);
+		update();
+	}
+}
+
+void QViewport::setZRotation(int angle)
+{
+	qNormalizeAngle(&angle);
+	if (angle != zRot) {
+		zRot = angle;
+		emit zRotationChanged(angle);
+		update();
+	}
+}
+
+void QViewport::mousePressEvent(QMouseEvent *event)
+{
+	this->lastPos = event->pos();
+}
+
+void QViewport::mouseMoveEvent(QMouseEvent *event)
+{
+	int dx = event->x() - lastPos.x();
+	int dy = event->y() - lastPos.y();
+
+	if (event->buttons() & Qt::LeftButton)
+	{
+		setXRotation(this->xRot + 8 * dy);
+		setYRotation(this->yRot + 8 * dx);
+	}
+	else if (event->buttons() & Qt::RightButton)
+	{
+		setXRotation(xRot + 8 * dy);
+		setZRotation(zRot + 8 * dx);
+	}
+	
+	lastPos = event->pos();
+}
+
+void QViewport::wheelEvent(QWheelEvent *event)
+{
+	QPoint numDegrees = event->angleDelta();
+	if (numDegrees.y() < 0)
+	{
+		zoom = zoom / 1.1;
+	}
+	if (numDegrees.y() > 0) 
+	{
+		zoom = zoom * 1.1;
+	}
+	update();
+}

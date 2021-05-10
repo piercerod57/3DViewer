@@ -10,6 +10,8 @@ FinalModelViewer::FinalModelViewer(QWidget *parent)
     ui.setupUi(this);
 }
 
+
+
 void FinalModelViewer::loadFromFile() {
 	QString filename = QFileDialog::getOpenFileName(
 		this,

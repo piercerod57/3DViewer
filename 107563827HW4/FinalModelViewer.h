@@ -17,7 +17,7 @@ public:
 
 public slots:
 	void loadFromFile();
-	
+
 
 private:
     Ui::FinalModelViewerClass ui;
