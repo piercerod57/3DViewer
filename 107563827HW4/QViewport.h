@@ -1,9 +1,40 @@
 #pragma once
 
 #include <QOpenGLWidget>
+
 #include "Icosahedron.h"
 #include "LoadModel.h"
+#include "Vector3f.h"
 
+enum SHADER_ENUM { SHADER_NORMAL, SHADER_PIXEL, SHADER_PHONG, SHADER_CUSTOM1, SHADER_CUSTOM2 };
+
+
+typedef struct 
+{
+	bool enabled;
+	
+	GLenum id;
+
+	GLfloat angle = 0.0; //set the angle of rotation
+
+	//diffuse light color variables
+	GLfloat dlr;
+	GLfloat dlg;
+	GLfloat dlb;
+
+	//ambient light color variables
+	GLfloat alr;
+	GLfloat alg;
+	GLfloat alb;
+
+	//light position variables
+	GLfloat lx;
+	GLfloat ly;
+	GLfloat lz;
+	GLfloat lw;
+	
+	
+}light_type;
 
 /*
 *	QT Viewport Class
@@ -24,15 +55,21 @@ public:
 	obj_type mesh;
 	obj_type_ptr ogg = &mesh;
 
+	light_type lights[3];
+
 	double xRot;
 	double yRot;
 	double zRot;
 	double zoom;
 	QPoint lastPos;
 
+	unsigned int glProgram;
+
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	void wheelEvent(QWheelEvent *event);
+
+
 public slots:
 	void setXRotation(int angle);
 	void setYRotation(int angle);

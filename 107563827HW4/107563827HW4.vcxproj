@@ -22,6 +22,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -61,7 +62,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib; opengl32.lib; glu32.lib;$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -94,6 +95,7 @@
     <ClCompile Include="Icosahedron.cpp" />
     <ClCompile Include="LoadModel.cpp" />
     <ClCompile Include="QViewport.cpp" />
+    <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <QtRcc Include="FinalModelViewer.qrc" />
     <QtUic Include="FinalModelViewer.ui" />
@@ -105,6 +107,7 @@
     <ClInclude Include="icosahedron.h" />
     <ClInclude Include="LoadModel.h" />
     <ClInclude Include="OpenGL.h" />
+    <ClInclude Include="Shaders.h" />
     <ClInclude Include="Vector3f.h" />
     <QtMoc Include="QViewport.h" />
   </ItemGroup>
