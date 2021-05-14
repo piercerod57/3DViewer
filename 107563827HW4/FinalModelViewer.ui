@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1900</width>
-    <height>1001</height>
+    <height>1000</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -21,38 +21,100 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2">
+    <item row="0" column="1">
+     <widget class="QViewport" name="viewport" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
      <widget class="QWidget" name="widget" native="true">
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="5" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout">
+       <item row="9" column="0">
+        <widget class="QCheckBox" name="light2_enabled">
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="37" column="2">
+        <widget class="QPushButton" name="exitButton">
+         <property name="text">
+          <string>Exit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="0" colspan="3">
+        <widget class="Line" name="line_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="3">
+        <widget class="Line" name="line_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_52">
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="label_69">
            <property name="text">
-            <string>PosX</string>
+            <string>PosZ</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+          <widget class="QDoubleSpinBox" name="light2_posz">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
-       <item row="16" column="1">
-        <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="label_18">
+          <widget class="QLabel" name="label_7">
            <property name="text">
             <string>PosY</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
+          <widget class="QDoubleSpinBox" name="light1_posy">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
-       <item row="9" column="1">
+       <item row="23" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Ambient RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
           <widget class="QLabel" name="label_15">
@@ -66,283 +128,116 @@
          </item>
         </layout>
        </item>
-       <item row="9" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_9">
-         <item>
-          <widget class="QRadioButton" name="radioButton_2">
-           <property name="text">
-            <string>Point Light</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton">
-           <property name="text">
-            <string>Directional Light</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="37" column="0" colspan="3">
-        <widget class="Line" name="line">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QLabel" name="label_14">
-         <property name="text">
-          <string>Specular Intensity</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="1">
-        <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>Diffuse RGB</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>PosY</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
-         </item>
-        </layout>
-       </item>
-       <item row="8" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_8">
-         <item>
-          <widget class="QDial" name="dial_11">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_12">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_10">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="38" column="0">
-        <widget class="QPushButton" name="pushButton_7">
-         <property name="text">
-          <string>Load Texture</string>
-         </property>
-        </widget>
-       </item>
-       <item row="36" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>TEXTURE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="2">
-        <widget class="QCheckBox" name="checkBox">
-         <property name="text">
-          <string>Spotlight</string>
-         </property>
-        </widget>
-       </item>
-       <item row="32" column="0" colspan="3">
+       <item row="28" column="0" colspan="3">
         <widget class="Line" name="line_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
-       <item row="25" column="0">
-        <widget class="QSpinBox" name="spinBox"/>
-       </item>
-       <item row="10" column="0">
-        <widget class="QLabel" name="label_16">
-         <property name="text">
-          <string>LIGHT #2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="34" column="1">
-        <widget class="QPushButton" name="pushButton_6">
-         <property name="text">
-          <string>Custom #2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_12">
-         <property name="text">
-          <string>Ambient RGB</string>
-         </property>
-        </widget>
-       </item>
-       <item row="41" column="0">
-        <widget class="QPushButton" name="loadButton">
-         <property name="text">
-          <string>Load 3DS Model</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="2">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
-       </item>
-       <item row="31" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>SHADERS</string>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="0" colspan="3">
-        <widget class="Line" name="line_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="33" column="0">
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>Normal Mapping</string>
-         </property>
-        </widget>
-       </item>
-       <item row="38" column="1">
-        <widget class="QPushButton" name="pushButton_8">
-         <property name="text">
-          <string>Load UV Map</string>
-         </property>
-        </widget>
-       </item>
-       <item row="34" column="0">
-        <widget class="QPushButton" name="pushButton_5">
-         <property name="text">
-          <string>Custom #1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="1">
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QDial" name="dial_6">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>PosX</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QDial" name="dial_5">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
+          <widget class="QDoubleSpinBox" name="light1_posx">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
            </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_4">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
            </property>
           </widget>
          </item>
         </layout>
        </item>
-       <item row="18" column="0">
+       <item row="5" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <widget class="QDial" name="light1_dr">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light1_dg">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light1_db">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Diffuse RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
           <string>MATERIAL PARAMETERS</string>
          </property>
         </widget>
        </item>
-       <item row="35" column="0">
-        <spacer name="verticalSpacer_2">
+       <item row="22" column="0" colspan="3">
+        <widget class="Line" name="line_3">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="15" column="0">
-        <widget class="QCheckBox" name="checkBox_3">
-         <property name="text">
-          <string>Enabled</string>
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
-       <item row="33" column="1">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Per-Pixel Lighting</string>
-         </property>
-        </widget>
-       </item>
-       <item row="33" column="2">
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="text">
-          <string>Phong Shading</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
-       </item>
-       <item row="20" column="2">
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string>Specular RGB</string>
-         </property>
-        </widget>
-       </item>
-       <item row="20" column="0">
-        <widget class="QLabel" name="label_9">
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_41">
          <property name="text">
           <string>Ambient RGB</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="2">
+       <item row="30" column="1">
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>Custom #2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QLabel" name="label_8">
@@ -352,122 +247,21 @@
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
-         </item>
-        </layout>
-       </item>
-       <item row="12" column="0">
-        <widget class="QCheckBox" name="checkBox_2">
-         <property name="text">
-          <string>Enabled</string>
-         </property>
-        </widget>
-       </item>
-       <item row="16" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_13">
-         <item>
-          <widget class="QLabel" name="label_19">
-           <property name="text">
-            <string>PosX</string>
+          <widget class="QDoubleSpinBox" name="light1_posz">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
-         </item>
         </layout>
-       </item>
-       <item row="16" column="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_12">
-         <item>
-          <widget class="QLabel" name="label_20">
-           <property name="text">
-            <string>PosZ</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
-         </item>
-        </layout>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>LIGHT #1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="41" column="2">
-        <widget class="QPushButton" name="exitButton">
-         <property name="text">
-          <string>Exit</string>
-         </property>
-        </widget>
        </item>
        <item row="24" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Shininess</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QLabel" name="label_13">
-         <property name="text">
-          <string>Diffuse Intensity</string>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
-         <item>
-          <widget class="QDial" name="dial_8">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_9">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QDial" name="dial_7">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="4" column="0">
-        <widget class="QCheckBox" name="light1Enabled">
-         <property name="text">
-          <string>Enabled</string>
-         </property>
-        </widget>
-       </item>
-       <item row="13" column="0">
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>LIGHT #3</string>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QDial" name="dial">
@@ -501,7 +295,227 @@
          </item>
         </layout>
        </item>
-       <item row="40" column="0">
+       <item row="35" column="1">
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>Load UV Map</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>PosX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="light3_posx">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>LIGHT #1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <item>
+          <widget class="QRadioButton" name="radioButton_2">
+           <property name="text">
+            <string>Point Light</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton">
+           <property name="text">
+            <string>Directional Light</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="27" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>SHADERS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="30" column="0">
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="text">
+          <string>Custom #1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>LIGHT #3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <item>
+          <widget class="QDial" name="light1_sr">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light1_sg">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light1_sb">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="29" column="1">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Per-Pixel Lighting</string>
+         </property>
+        </widget>
+       </item>
+       <item row="25" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Shininess</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0" colspan="3">
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="32" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>TEXTURE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>Ambient RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_50">
+         <item>
+          <widget class="QLabel" name="label_67">
+           <property name="text">
+            <string>PosX</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="light2_posx">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="24" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QDial" name="dial_8">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_9">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_7">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="34" column="0" colspan="3">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="36" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -514,35 +528,554 @@
          </property>
         </spacer>
        </item>
-       <item row="14" column="0" colspan="3">
-        <widget class="Line" name="line_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+       <item row="18" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <item>
+          <widget class="QLabel" name="label_20">
+           <property name="text">
+            <string>PosZ</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="light3_posz">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="20" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_53">
+         <item>
+          <widget class="QDial" name="light3_ar">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light3_ag">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light3_ab">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="5" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QDial" name="light1_ar">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light1_ag">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light1_ab">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="23" column="1">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Diffuse RGB</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="0" colspan="3">
-        <widget class="Line" name="line_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+       <item row="20" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_55">
+         <item>
+          <widget class="QDial" name="light3_sr">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light3_sg">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light3_sb">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="2">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Specular RGB</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0" colspan="3">
-        <widget class="Line" name="line_6">
+       <item row="13" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_32">
+         <item>
+          <widget class="QDial" name="light2_dr">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light2_dg">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light2_db">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>LIGHT #2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="29" column="2">
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>Phong Shading</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_30">
+         <item>
+          <widget class="QDial" name="light2_sr">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light2_sg">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light2_sb">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="37" column="0">
+        <widget class="QPushButton" name="loadButton">
+         <property name="text">
+          <string>Load 3DS Model</string>
+         </property>
+        </widget>
+       </item>
+       <item row="20" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_54">
+         <item>
+          <widget class="QDial" name="light3_dr">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light3_dg">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light3_db">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="23" column="2">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Specular RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="29" column="0">
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Normal Mapping</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>PosY</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="light3_posy">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="12" column="1">
+        <widget class="QLabel" name="label_42">
+         <property name="text">
+          <string>Diffuse RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_51">
+         <item>
+          <widget class="QLabel" name="label_68">
+           <property name="text">
+            <string>PosY</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="light2_posy">
+           <property name="minimum">
+            <double>-1000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>20.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="6" column="2">
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>Spotlight</string>
+         </property>
+        </widget>
+       </item>
+       <item row="24" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QDial" name="dial_6">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_5">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="dial_4">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="light1_enabled">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="17" column="0">
+        <widget class="QCheckBox" name="light3_enabled">
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="35" column="0">
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Load Texture</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="2">
+        <widget class="QLabel" name="label_43">
+         <property name="text">
+          <string>Specular RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="26" column="0">
+        <widget class="QSpinBox" name="spinBox"/>
+       </item>
+       <item row="31" column="0">
+        <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="13" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_31">
+         <item>
+          <widget class="QDial" name="light2_ar">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="notchTarget">
+            <double>1.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light2_ag">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDial" name="light2_ab">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="19" column="0">
+        <widget class="QLabel" name="label_70">
+         <property name="text">
+          <string>Ambient RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="1">
+        <widget class="QLabel" name="label_71">
+         <property name="text">
+          <string>Diffuse RGB</string>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="2">
+        <widget class="QLabel" name="label_72">
+         <property name="text">
+          <string>Specular RGB</string>
          </property>
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QViewport" name="viewport" native="true">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 0, 0);</string>
-      </property>
      </widget>
     </item>
    </layout>
@@ -574,6 +1107,12 @@
    <extends>QWidget</extends>
    <header>QViewport.h</header>
    <container>1</container>
+   <slots>
+    <signal>xRotationChanged(int)</signal>
+    <signal>yRotationChanged(int)</signal>
+    <slot>mousePressEvent(QMouseEvent)</slot>
+    <slot>mouseMoveEvent(QMouseEvent)</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources>
@@ -612,11 +1151,521 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>light1_enabled</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_enabled(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_enabled</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_enabled(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_enabled</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_enabled(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>407</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_posx</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_posx(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>246</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_posy</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_posy(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>554</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_posz</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_posz(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>863</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_posx</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_posx(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>246</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_posy</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_posy(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>554</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_posz</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_posz(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>863</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_posx</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_posx(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>246</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_posy</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_posy(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>554</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_posz</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_posz(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>863</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_ar</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_ar(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_ar</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_ar(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_ar</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_ar(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_ag</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_ag(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_ab</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_ab(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_ag</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_ag(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_ab</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_ab(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_dr</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_dr(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_dr</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_dr(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_dg</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_dg(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>477</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light1_db</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light1_db(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>565</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_dg</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_dg(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>477</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light2_db</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light2_db(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>565</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_ag</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_ag(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_ab</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_ab(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_dg</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_dg(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>477</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_dr</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_dr(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>light3_db</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>FinalModelViewerClass</receiver>
+   <slot>light3_db(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>565</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>changeLevel(int)</slot>
   <slot>changeColor()</slot>
   <slot>renderIco()</slot>
   <slot>loadFromFile()</slot>
+  <slot>light1_enabled(int)</slot>
+  <slot>light2_enabled(int)</slot>
+  <slot>light3_enabled(int)</slot>
+  <slot>light1_posx(double)</slot>
+  <slot>light1_posy(double)</slot>
+  <slot>light1_posz(double)</slot>
+  <slot>light2_posx(double)</slot>
+  <slot>light2_posy(double)</slot>
+  <slot>light2_posz(double)</slot>
+  <slot>light3_posx(double)</slot>
+  <slot>light3_posy(double)</slot>
+  <slot>light3_posz(double)</slot>
+  <slot>light1_ar(int)</slot>
+  <slot>light1_ag(int)</slot>
+  <slot>light1_ab(int)</slot>
+  <slot>light1_dr(int)</slot>
+  <slot>light1_dg(int)</slot>
+  <slot>light1_db(int)</slot>
+  <slot>light2_ar(int)</slot>
+  <slot>light2_ag(int)</slot>
+  <slot>light2_ab(int)</slot>
+  <slot>light2_dr(int)</slot>
+  <slot>light2_dg(int)</slot>
+  <slot>light2_db(int)</slot>
+  <slot>light3_ar(int)</slot>
+  <slot>light3_ag(int)</slot>
+  <slot>light3_ab(int)</slot>
+  <slot>light3_dr(int)</slot>
+  <slot>light3_dg(int)</slot>
+  <slot>light3_db(int)</slot>
  </slots>
 </ui>

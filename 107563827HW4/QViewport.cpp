@@ -2,7 +2,6 @@
 
 #include "QViewport.h"
 #include "OpenGL.h"
-#include "Icosahedron.h"
 #include <QOpenGLContext>
 #include <QMouseEvent>
 #include "Vector3f.h"
@@ -33,24 +32,9 @@ void setLighting(light_type light)
 
 	glLightfv(light.id, GL_POSITION, LightPosition); //change the light accordingly
 	glEnable(light.id);
+
+	
 }
-
-/*
-Vector3f calculateSurfaceNormal()
-{
-	Begin Function CalculateSurfaceNormal(Input Triangle) Returns Vector
-
-		Set Vector U to(Triangle.p2 minus Triangle.p1)
-		Set Vector V to(Triangle.p3 minus Triangle.p1)
-
-		Set Normal.x to(multiply U.y by V.z) minus(multiply U.z by V.y)
-		Set Normal.y to(multiply U.z by V.x) minus(multiply U.x by V.z)
-		Set Normal.z to(multiply U.x by V.y) minus(multiply U.y by V.x)
-
-		Returning Normal
-
-	End Function
-}*/
 
 QViewport::QViewport(QWidget* parent) : QOpenGLWidget(parent) 
 {
@@ -58,6 +42,37 @@ QViewport::QViewport(QWidget* parent) : QOpenGLWidget(parent)
 }
 
 QViewport::~QViewport() {}
+
+void QViewport::initBufferObject()
+{
+	glGenBuffers(1, &pVBO);
+	glGenBuffers(1, &nVBO);
+	glGenBuffers(1, &EBO);
+
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+		
+	/* Buffer vertex coordinates */
+	glEnableVertexAttribArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, pVBO);
+	glBufferData(GL_ARRAY_BUFFER, this->mesh.vertices_qty * sizeof(vertex_type), &(this->mesh.vertex[0]), GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	
+	/* Buffer vertex normals */
+	glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, nVBO);
+	glBufferData(GL_ARRAY_BUFFER, this->mesh.vertices_qty * sizeof(vertex_type), &(this->mesh.normal[0]), GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->mesh.polygons_qty * sizeof(polygon_type), &(this->mesh.polygon[0]), GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+	glEnable(GL_DEPTH_TEST);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
 
 void QViewport::initializeGL() 
 {
@@ -80,8 +95,11 @@ void QViewport::initializeGL()
 	this->zRot = 0;
 	this->zoom = -75.0;
 
+	this->initBufferObject();
 	this->glProgram = createShaders();
 	
+	initBufferObject();
+
 	//Viewport transformation
 	glViewport(0, 0, width, height);
 
@@ -107,31 +125,31 @@ void QViewport::initializeGL()
 		}
 		else if (i == 1)
 		{
-			this->lights[i].enabled = true;
+			this->lights[i].enabled = false;
 			this->lights[i].id = GL_LIGHT1;
 		}
 		else if (i == 2)
 		{
-			this->lights[i].enabled = true;
+			this->lights[i].enabled = false;
 			this->lights[i].id = GL_LIGHT2;
 		}
 
 		this->lights[i].angle = 0.0; //set the angle of rotation
 
 		//diffuse light color variables
-		this->lights[i].dlr = 1.0;
-		this->lights[i].dlg = 1.0;
-		this->lights[i].dlb = 1.0;
+		this->lights[i].dlr = 0.2;
+		this->lights[i].dlg = 0.2;
+		this->lights[i].dlb = 0.2;
 
 		//ambient light color variables
 		this->lights[i].alr = 0.2;
-		this->lights[i].alg = 0.1;
-		this->lights[i].alb = 1.0;
+		this->lights[i].alg = 0.2;
+		this->lights[i].alb = 0.2;
 
 		//light position variables
 		this->lights[i].lx = 0.0;
 		this->lights[i].ly = 10.0;
-		this->lights[i].lz = (GLfloat)(i + 10);
+		this->lights[i].lz = (GLfloat)(i * 10);
 		this->lights[i].lw = 0.0;
 	}
 }
@@ -150,6 +168,10 @@ void QViewport::paintGL()
 		if (this->lights[i].enabled == true)
 		{
 			setLighting(this->lights[i]);
+		}
+		else
+		{
+			glDisable(this->lights[i].id);
 		}
 	}
 	
@@ -185,32 +207,35 @@ void QViewport::paintGL()
 
 		glTexCoord2f(	this->mesh.mapcoord[this->mesh.polygon[l_index].a].u,
 						this->mesh.mapcoord[this->mesh.polygon[l_index].a].v);
+		
+		glNormal3f(N.x, N.y, N.z);//set normals
 		// Coordinates of the first vertex
 		glVertex3f(	this->mesh.vertex[this->mesh.polygon[l_index].a].x,
 					this->mesh.vertex[this->mesh.polygon[l_index].a].y,
 					this->mesh.vertex[this->mesh.polygon[l_index].a].z); //Vertex definition
 
-		glNormal3f(N.x, N.y, N.z);//set normals
 		//----------------- SECOND VERTEX -----------------
 		// Texture coordinates of the second vertex
 		glTexCoord2f(	this->mesh.mapcoord[this->mesh.polygon[l_index].b].u,
 						this->mesh.mapcoord[this->mesh.polygon[l_index].b].v);
+
+		glNormal3f(N.x, N.y, N.z);//set normals
 		// Coordinates of the second vertex
 		glVertex3f(	this->mesh.vertex[this->mesh.polygon[l_index].b].x,
 					this->mesh.vertex[this->mesh.polygon[l_index].b].y,
 					this->mesh.vertex[this->mesh.polygon[l_index].b].z);
-
-		glNormal3f(N.x, N.y, N.z);//set normals
+	
 		//----------------- THIRD VERTEX -----------------
 		// Texture coordinates of the third vertex
 		glTexCoord2f(	this->mesh.mapcoord[this->mesh.polygon[l_index].c].u,
 						this->mesh.mapcoord[this->mesh.polygon[l_index].c].v);
+
+		glNormal3f(N.x, N.y, N.z);//set normals
 		// Coordinates of the Third vertex
 		glVertex3f(		this->mesh.vertex[this->mesh.polygon[l_index].c].x,
 						this->mesh.vertex[this->mesh.polygon[l_index].c].y,
 						this->mesh.vertex[this->mesh.polygon[l_index].c].z);
 		
-		glNormal3f(N.x, N.y, N.z);//set normals
 	}
 	glUseProgram(0);//Unbinds shaders
 	glEnd();

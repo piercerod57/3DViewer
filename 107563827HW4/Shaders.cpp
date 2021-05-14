@@ -34,8 +34,7 @@ static unsigned int compileShaders(unsigned int type, const char* src)
 	unsigned int id = glCreateShader(type);
 	glShaderSource(id, 1, &src, nullptr);
 	glCompileShader(id);
-
-	//TODO: error handling
+	
 	int result;
 	glGetShaderiv(id, GL_COMPILE_STATUS, &result);
 	if (result == GL_FALSE)

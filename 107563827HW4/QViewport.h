@@ -1,8 +1,6 @@
 #pragma once
 
 #include <QOpenGLWidget>
-
-#include "Icosahedron.h"
 #include "LoadModel.h"
 #include "Vector3f.h"
 
@@ -17,23 +15,21 @@ typedef struct
 
 	GLfloat angle = 0.0; //set the angle of rotation
 
-	//diffuse light color variables
-	GLfloat dlr;
-	GLfloat dlg;
-	GLfloat dlb;
-
 	//ambient light color variables
 	GLfloat alr;
 	GLfloat alg;
 	GLfloat alb;
+
+	//diffuse light color variables
+	GLfloat dlr;
+	GLfloat dlg;
+	GLfloat dlb;
 
 	//light position variables
 	GLfloat lx;
 	GLfloat ly;
 	GLfloat lz;
 	GLfloat lw;
-	
-	
 }light_type;
 
 /*
@@ -50,8 +46,10 @@ public:
 	void initializeGL();
 	void paintGL();
 	void resizeGL(int width, int height);
+	void initBufferObject();
 
-	
+	GLuint pVBO, nVBO, EBO, VAO;
+
 	obj_type mesh;
 	obj_type_ptr ogg = &mesh;
 
@@ -74,7 +72,7 @@ public slots:
 	void setXRotation(int angle);
 	void setYRotation(int angle);
 	void setZRotation(int angle);
-
+	
 signals:
 	void xRotationChanged(int angle);
 	void yRotationChanged(int angle);

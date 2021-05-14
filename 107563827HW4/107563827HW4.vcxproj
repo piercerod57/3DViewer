@@ -92,7 +92,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Icosahedron.cpp" />
     <ClCompile Include="LoadModel.cpp" />
     <ClCompile Include="QViewport.cpp" />
     <ClCompile Include="Shaders.cpp" />
@@ -104,7 +103,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="icosahedron.h" />
     <ClInclude Include="LoadModel.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="Shaders.h" />
